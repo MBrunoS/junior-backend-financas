@@ -22,6 +22,7 @@ pnpm install
 pnpm dev
 ```
 
-As releases identificam os materiais de cada sprint. A implementação de
-referência em NestJS será publicada junto das aulas completas; até lá, a API
-sem dependências em `kit/reference-api` define o comportamento esperado.
+As tags imutáveis `sprint-N-materials` identificam os materiais de cada etapa.
+A implementação de referência em NestJS será publicada junto das aulas
+completas; até lá, a API sem dependências em `kit/reference-api` define o
+comportamento esperado.

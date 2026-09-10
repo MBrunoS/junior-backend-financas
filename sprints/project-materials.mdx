@@ -1,54 +1,23 @@
 ---
 title: "Materiais do Projeto"
-description: "Baixe o projeto back-end, use os checkpoints e valide sua API com o contrato e o cliente oficial."
+description: "Baixe o starter back-end e valide sua API com o contrato e os clientes oficiais."
 ---
 
-Os materiais do projeto vivem em um repositório independente:
+Os materiais vivem neste repositório público. Comece em `student-starter/`, consulte os enunciados em `sprints/` e use `kit/` para validar a integração.
 
-- [Abrir o repositório Júnior Back-end](https://github.com/MBrunoS/junior-backend-financas)
-- [Baixar a versão mais recente](https://github.com/MBrunoS/junior-backend-financas/releases/latest)
-- [Consultar todas as releases e checkpoints](https://github.com/MBrunoS/junior-backend-financas/releases)
+As tags `sprint-N-materials` congelam o pacote de cada etapa, mas a implementação NestJS deve ser construída por você. A solução completa será publicada com as aulas da trilha; a API executável em `kit/reference-api/` já define o comportamento esperado.
 
-## Iniciando o projeto
-
-```bash
-git clone https://github.com/MBrunoS/junior-backend-financas.git
-cd junior-backend-financas
-git switch --detach sprint-1-start
-git switch -c minha-api-financas
-pnpm install
-```
-
-Publique o branch criado em um repositório da sua conta. Assim, o histórico oficial continua sendo apenas uma referência e seus commits registram suas próprias decisões.
-
-## Checkpoints
-
-`sprint-N-start` é o ponto recuperável para iniciar uma etapa. `sprint-N-solution` é a solução de comparação depois da tentativa. Para recuperar a Sprint 3:
-
-```bash
-git fetch --tags
-git switch --detach sprint-3-start
-git switch -c minha-sprint-3
-pnpm install
-```
-
-Cada release contém critérios, comandos de verificação e observações de migração. O contrato em `kit/contract/openapi.yaml` não muda entre implementações da mesma versão.
-
-## Validando sem um aluno Front-end
-
-Com sua API na porta 3000, execute a suíte externa:
+Com sua API na porta 3000:
 
 ```bash
 cd kit
 API_BASE_URL=http://localhost:3000 pnpm contract:test
 ```
 
-Depois execute o cliente React oficial:
+Depois, execute o cliente oficial:
 
 ```bash
 cd kit/reference-web
 pnpm install
 VITE_API_URL=http://localhost:3000 pnpm dev
 ```
-
-Se algum comando falhar, abra uma issue no repositório informando sprint, versão do Node, banco utilizado e saída completa do terminal.
