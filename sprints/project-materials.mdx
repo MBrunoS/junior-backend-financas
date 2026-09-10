@@ -1,0 +1,54 @@
+---
+title: "Materiais do Projeto"
+description: "Baixe o projeto back-end, use os checkpoints e valide sua API com o contrato e o cliente oficial."
+---
+
+Os materiais do projeto vivem em um repositório independente:
+
+- [Abrir o repositório Júnior Back-end](https://github.com/MBrunoS/junior-backend-financas)
+- [Baixar a versão mais recente](https://github.com/MBrunoS/junior-backend-financas/releases/latest)
+- [Consultar todas as releases e checkpoints](https://github.com/MBrunoS/junior-backend-financas/releases)
+
+## Iniciando o projeto
+
+```bash
+git clone https://github.com/MBrunoS/junior-backend-financas.git
+cd junior-backend-financas
+git switch --detach sprint-1-start
+git switch -c minha-api-financas
+pnpm install
+```
+
+Publique o branch criado em um repositório da sua conta. Assim, o histórico oficial continua sendo apenas uma referência e seus commits registram suas próprias decisões.
+
+## Checkpoints
+
+`sprint-N-start` é o ponto recuperável para iniciar uma etapa. `sprint-N-solution` é a solução de comparação depois da tentativa. Para recuperar a Sprint 3:
+
+```bash
+git fetch --tags
+git switch --detach sprint-3-start
+git switch -c minha-sprint-3
+pnpm install
+```
+
+Cada release contém critérios, comandos de verificação e observações de migração. O contrato em `kit/contract/openapi.yaml` não muda entre implementações da mesma versão.
+
+## Validando sem um aluno Front-end
+
+Com sua API na porta 3000, execute a suíte externa:
+
+```bash
+cd kit
+API_BASE_URL=http://localhost:3000 pnpm contract:test
+```
+
+Depois execute o cliente React oficial:
+
+```bash
+cd kit/reference-web
+pnpm install
+VITE_API_URL=http://localhost:3000 pnpm dev
+```
+
+Se algum comando falhar, abra uma issue no repositório informando sprint, versão do Node, banco utilizado e saída completa do terminal.
